@@ -29,6 +29,7 @@ end
   )
 end
 
+
 # seed user
 10.times do
   User.create!(
