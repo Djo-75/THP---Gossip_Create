@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'contact#contact_section'
   get '/welcome/display', to: 'welcome#welcome_display'
   get '/welcome/:id', to: 'welcome#welcome_customize' # route qui va me permettre de récup l'entrée dans mon URL ex: http://localhost:3000/welcome/rintintin
-
+  get '/:id/edit/', to: 'static_pages#index'
+  
   # root "articles#index"
 end

@@ -1,3 +1,11 @@
 <h1>StaticPages#index</h1>
 <p>Find me in app/views/static_pages/index.html.erb</p>
 <p>Bonjour les djeuns !</p>
+
+    <% @all_gossips.each_with_index do |gossip, index| %>
+      <p>Son auteur : <%= gossip.user.first_name %></p>
+      <p>Le contenu du potin : <%= gossip.user.description %></p>
+      <p><% link = "http://localhost:3000/" + index.to_s %>
+      <% url = link %>
+      <a href="<%= url %>">Voici la page du potin en question</a></p>
+    <% end %>
