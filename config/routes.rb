@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   root 'static_pages#index'
   get '/team', to: 'team#team_section'
   get '/contact', to: 'contact#contact_section'
-  get '/welcome', to: 'welcome#welcome_section'
-  get '/users/:username', to: 'users#welcome_section'
+  get '/welcome/display', to: 'welcome#welcome_display'
+  get '/welcome/:id', to: 'welcome#welcome_customize' # route qui va me permettre de récup l'entrée dans mon URL ex: http://localhost:3000/welcome/rintintin
 
   # root "articles#index"
 end
