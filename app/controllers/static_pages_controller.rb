@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
   def index
-    @all_gossips = Gossip.all
+    @all_gossips = Gossip.order(id: :asc)
   end
 end
