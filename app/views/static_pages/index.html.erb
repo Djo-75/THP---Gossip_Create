@@ -1,10 +1,27 @@
-<h1>Hop là</h1>
-<p>Bonjour les djeuns !</p>
+<div class="mx-auto" style="width: 200px;">
+  Bonjour les djeuns !
+</div><br>
+<div class="mx-auto" style="width: 200px;">
+  J'ai pleeeeeeiiiiiiiiiin de choses à vous raconter !
+</div><br>
 
+    <div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
     <% @all_gossips.each_with_index do |gossip, index| %>
-      <p>Son auteur : <%= gossip.user.first_name %></p>
-      <p>Le contenu du potin : <%= gossip.title %></p>
-      <p><% link = "http://localhost:3000/" + index.to_s %>
-      <% url = link %>
-      <a href="<%= url %>">Voici la page du potin en question</a></p>
-    <% end %>
+        <div class="col">
+          <div class="card ">
+            <div class="card shadow p-3 bg-white rounded" style="">
+              <div class="card-body">
+                <h5 class="card-title"><%= gossip.title %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"> de <%= gossip.user.first_name %> avec index n°<%= index %></h6>
+                <% link = "http://localhost:3000/" + index.to_s %>
+                <a href="<%= link %>" class="btn btn-primary">Lien vers le potin</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end%>
+    </div>
+  </div>
+  </body>
+</div>
