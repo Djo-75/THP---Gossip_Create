@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+  font-family: 'Montserrat'
+}
+
+h1 {
+  font-weight:900 ;
+}
+
+body {
+  background: #e8cbc0;
+  background: -webkit-linear-gradient(to right, #e8cbc0, #636fa4);
+  background: linear-gradient(to right, #e8cbc0, #636fa4);
+  min-height: 100vh;
+}
