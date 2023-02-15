@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>The Gossip Project</title>
+  </head>
+  <body>
+    <h1>Bienvenue <%= @users.first_name %> ! Ici, c'est ta page perso !</h1>
+    <h2> Les caractéristiques de ton profil sont les suivantes: </h2>
+    <br>
+    <p> Ton prénom : <%= @users.first_name %> !</p>
+    <p> Ton nom de famille : <%= @users.last_name %> !</p>
+    <p> Ta description : <%= @users.description %> !</p>
+    <p> Ton age : <%= @users.age%> !</p>
+    <p> Ton zip_code : <%= @users.city.zip_code%> !</p>
+  </body>
+</html>

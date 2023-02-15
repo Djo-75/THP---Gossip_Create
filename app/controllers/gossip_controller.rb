@@ -1,3 +1,0 @@
-class GossipController < ApplicationController
-
-end
