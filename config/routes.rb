@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   get '/contact' => 'contact#contact_section'
   get '/welcome/display' => 'welcome#welcome_display'
   get '/welcome/:id' => 'welcome#welcome_customize' # route qui va me permettre de récup l'entrée dans mon URL ex: http://localhost:3000/welcome/rintintin
-  # get '/:id/' => 'gossip#gossip_section'
+  resources :users
   resources :gossips
 end
