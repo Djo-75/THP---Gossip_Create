@@ -21,8 +21,10 @@
         <a href="/users/<%= @gossip_id.user.id %>"class="btn btn-primary">Voir le profil de son auteur</a>
         <a href="/cities/<%= @gossip_id.user.id %>"class="btn btn-primary">Voir la ville de l'auteur</a>
         <a href="/gossips/<%= params[:id] %>/edit"class="btn btn-danger">Editer le potin</a>
-        <a href="/gossips/<%= link_to "Détruire", @gossip, data: { turbo_method: :delete, 
-                                                                    confirm: "T'es sûr?" } %>
+        <%= link_to "Destroy", @gossip, data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
       </div>
     </div>
   </div>
