@@ -4,18 +4,21 @@
 <div class="mx-auto" style="width: 200px;">
   J'ai pleeeeeeiiiiiiiiiin de choses à vous raconter !
 </div><br>
+<div class="mx-auto" style="width: 200px;">
+<a href="<%= link = "http://localhost:3000/gossips/new" %>" class="btn btn-primary">Lien pour commérer</a>
+</div><br>
 
     <div class="container">
     <div class="row row-cols-1 row-cols-md-3 g-4">
-    <% @all_gossips.each_with_index do |gossip, index| %>
+    <% @all_gossips.each do |gossip| %>
         <div class="col">
           <div class="card ">
             <div class="card shadow p-3 bg-white rounded" style="">
               <div class="card-body">
                 <h5 class="card-title"><%= gossip.title %></h5>
-                <h6 class="card-subtitle mb-2 text-muted"> de <%= gossip.user.first_name %> avec index n°<%= index %></h6>
-                <% link = "http://localhost:3000/" + index.to_s %>
-                <a href="<%= link %>" class="btn btn-primary">Lien vers le potin</a>
+                <h6 class="card-subtitle mb-2 text-muted"> de <%= gossip.content %></h6>
+ 
+                <a href="/gossips/<%= gossip.id %>" class="btn btn-primary">Lien vers le potin <%= gossip.id %></a>
               </div>
             </div>
           </div>

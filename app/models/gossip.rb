@@ -1,6 +1,6 @@
 class Gossip < ApplicationRecord
     validates :title, presence: true # rend la présence du titre obligatoire
-    validates :title, length: { in: 6..20 }
+    validates :title, length: { in: 3..3003 }
     validates :content, presence: true
 
     belongs_to :user, required: false
