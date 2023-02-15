@@ -26,7 +26,7 @@ class GossipsController < ApplicationController
     end
 
     def edit
-      @gossip = Gossip.find(params[:id])
+      @gossip = Gossip.find(params[:id]) #
     end
     
     def update
