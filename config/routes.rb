@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get '/welcome/:id' => 'welcome#welcome_customize' # route qui va me permettre de récup l'entrée dans mon URL ex: http://localhost:3000/welcome/rintintin
   resources :users
   resources :gossips
+  resources :cities
 end

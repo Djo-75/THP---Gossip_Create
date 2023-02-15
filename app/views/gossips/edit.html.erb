@@ -2,7 +2,7 @@
   <body>
     <!-- ... -->
 
-    <%= form_tag url_for(action: 'create'), method: "PATCH" do %>
+    <%= form_tag url_for(action: 'create'), method: "POST" do %>
 
       <%= label_tag 'Titre' %>
       <%= text_field_tag 'title', @gossip.title %>
@@ -12,7 +12,7 @@
       <%= text_area_tag 'content', @gossip.content %>
       <br /> <br />
 
-      <%= submit_tag "Soumettre le commérage" %>
+      <%= submit_tag "Modifier le commérage" %>
 
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
