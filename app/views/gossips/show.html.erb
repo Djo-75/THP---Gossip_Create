@@ -13,11 +13,12 @@
         Voici l'index du potin n°<%= @gossip_id.id %>
       </div>
       <div class="card-body">
-        <h5 class="card-title">Le titre du gossip est <%= @gossip_id.title %></h5>
+        <h5 class="card-title">Le titre du gossip est <%= @gossip_id.title %></h5><br>
+        <p class="card-text">Le nom de son auteur est le suivant : <%= @gossip_id.user.first_name %></p>
         <p class="card-text">Son contenu est le suivant : <%= @gossip_id.content %></p>
+        <p class="card-text">Sa ville est la suivante : <%= @gossip_id.user.city.name %></p>
         <% name_user = @gossip_id.user.first_name %>
-        <% link = "http://localhost:3000/welcome/" + name_user %>
-        <a href="<%= link %>"class="btn btn-primary">Voir le profil de son auteur</a>
+        <a href="/users/<%= @gossip_id.user.id %>"class="btn btn-primary">Voir le profil de son auteur</a>
       </div>
     </div>
   </div>

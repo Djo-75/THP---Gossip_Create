@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>The Gossip Project</title>
+  </head>
+
+  <body>
+  <div class="container">
+    <br>
+    <h1>BIENVENUE !</h1>
+    <br>
+    <div class="card">
+      <div class="card-header">
+        Voici l'identité du user n°<%= @users_id.id %>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Son prénom est le suivant : <%= @users_id.first_name %></p>
+        <p class="card-text">Son nom est le suivant : <%= @users_id.last_name %></p>
+        <p class="card-text">Sa description est la suivante : <%= @users_id.description %></p>
+        <p class="card-text">Son email est le suivant : <%= @users_id.email %></p>
+        <p class="card-text">Sa ville de résidence est la suivante : <%= @users_id.city.name %></p>
+
+        <% name_user = @users_id.first_name %>
+        <a href="/users/<%= @users_id.id %>"class="btn btn-primary">Voir le profil de son auteur</a>
+      </div>
+    </div>
+  </div>
+  </body>
+
+</html>
