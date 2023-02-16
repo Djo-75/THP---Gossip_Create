@@ -1,0 +1,43 @@
+<html>
+  <body>
+    <!-- ... -->
+
+    <%= form_tag url_for(action: 'create'), method: "POST" do %>
+
+      <%= label_tag 'First name' %>
+      <%= text_area_tag 'user[first_name]' %>
+      <br /> <br />
+
+      <%= label_tag 'Last name' %>
+      <%= text_area_tag 'user[last_name]' %>
+      <br /> <br /> 
+
+      <%= label_tag 'Description' %>
+      <%= text_area_tag 'user[description]' %>
+      <br /> <br />
+
+      <%= label_tag 'Email address' %>
+      <%= text_area_tag 'user[email]' %>
+      <br /> <br />
+
+      <%= label_tag 'Age' %>
+      <%= text_area_tag 'user[age]' %>
+      <br /> <br />
+
+      <%= label_tag 'City' %>
+      <%= text_area_tag 'user[city_id]' %>
+      <br /> <br />
+
+      <%= label_tag 'Password' %>
+      <%= text_area_tag 'user[password]' %>
+      <br /> <br />
+
+      <%= submit_tag "Créer son compte" %>
+
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    <% end %>
+
+    <!-- ... -->
+  </body>
+</html>

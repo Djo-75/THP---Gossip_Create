@@ -1,5 +1,14 @@
 class SessionsController < ApplicationController
 
+    def index
+    end
+
+    def show
+    end
+
+    def new
+    end
+
     def create
       # cherche s'il existe un utilisateur en base avec l’e-mail
 
@@ -16,5 +25,14 @@ class SessionsController < ApplicationController
     #     flash.now[:danger] = 'Invalid email/password combination'
     #     render 'new'
     #   end
+    end
+
+    def edit
+    end
+
+    def update
+    end
+
+    def destroy
     end
 end
