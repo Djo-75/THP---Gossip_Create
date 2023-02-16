@@ -36,7 +36,7 @@ class SessionsController < ApplicationController
       puts "*****************"
       puts "YES"
       puts "!!!!!!!!!!!!!!!!"
-      redirect_to gossip_path, notice: "Logged out successfully."
+      redirect_to gossips_path, notice: "Logged out successfully."
 
     end
 end
