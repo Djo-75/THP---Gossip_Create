@@ -13,13 +13,25 @@ class UsersController < ApplicationController
         # Méthode qui crée un potin vide et l'envoie à une view qui affiche le formulaire pour 'le remplir' (new.html.erb)
     end
 
+    # def create
+    #     @user = User.new(post_params)
+
+    #     if @user.save
+    #         redirect_to root_path
+    #     else
+    #       render :new, status: :unprocessable_entity
+    #     end
+    # end
+
     def create
         @user = User.new(post_params)
-
         if @user.save
-            redirect_to root_path
+          @user = User.find_by(email: params[:user][:email])
+          log_in(@user)
+          redirect_to root_path
         else
-          render :new, status: :unprocessable_entity
+          flash.now[:danger] = 'Invalid email/password combination'
+          render 'new'
         end
     end
 

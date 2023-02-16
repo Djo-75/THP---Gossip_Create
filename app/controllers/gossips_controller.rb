@@ -1,5 +1,6 @@
 class GossipsController < ApplicationController
-  #  before_action :authenticate_user, only: [:index]
+   before_action :authenticate_user
+   include GossipsHelper
   
     def index
       @all_gossips = Gossip.all
@@ -16,9 +17,9 @@ class GossipsController < ApplicationController
     end
 
     def create
+        @user = current_user
         @gossip = Gossip.new('title' => params[:title],
-                             'content' => params[:content])
-
+                             'content' => params[:content], 'user_id' => @user.id)
         if @gossip.save
           redirect_to gossips_path
         else
@@ -27,24 +28,39 @@ class GossipsController < ApplicationController
     end
 
     def edit
-      @gossip = Gossip.find(params[:id]) #
+    @gossip = Gossip.find(params[:id]) #
+      if verify_user?
+        render :edit
+      else
+        redirect_to gossips_path
+      end
     end
     
     def update
       @gossip = Gossip.find(params[:id])
-      if @gossip.update('title' => params[:title],
-        'content' => params[:content])
-        redirect_to @gossip
+      if verify_user? && @gossip.update(title: params[:title], content: params[:content])
+        redirect_to gossips_path
       else
-        render :edit, status: :unprocessable_entity
+        render :edit
       end
     end
-    
-    
+
     def destroy
-      @gossip = Gossip.find(params[:id])
-      @gossip.destroy
-  
-      redirect_to root_path, notice: "Le potin a été supprimé avec succès"
+      if verify_user?
+       @gossip = Gossip.find(params[:id])
+       @gossip.destroy
+       redirect_to root_path, notice: "Le potin a été supprimé avec succès"
+      else
+        redirect_to gossips_path, notice: "Tu dois être connecté"
+      end
+    end
+
+    private
+
+    def authenticate_user
+      unless current_user
+        flash[:danger] = "Please log in."
+        redirect_to new_session_path
+      end
     end
 end
