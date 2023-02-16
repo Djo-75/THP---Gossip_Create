@@ -30,6 +30,18 @@
           <li class="nav-item">
             <a class="nav-link" href="/sessions/new">Se connecter</a>
           </li>
+          <div class="btn-group">
+  <button type="button" class="btn btn-danger">Action</button>
+  <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="visually-hidden">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="/sessions/new">Se connecter</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><%= button_to 'Déconnecter', logout_path, method: :delete, class: 'btn btn-outline-danger btn-sm btn-block' %></li>
+  </ul>
+</div>
+
         </ul>
       </div>
     </nav>
