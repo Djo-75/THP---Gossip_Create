@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  before_action :authenticate_user, only: [:index]
 
     def new
     end
@@ -8,20 +7,20 @@ class SessionsController < ApplicationController
       # cherche s'il existe un utilisateur en base avec l’e-mail
 
       user = User.find_by(email: params[:email])
-      # puts "||||||||||||||||||||||||||||||||||||"
-      # puts user.id
-      # puts user.first_name
-      # puts user.last_name
-      # puts user.password_digest
-      # puts "||||||||||||||||||||||||||||||||||||"
+      puts "||||||||||||||||||||||||||||||||||||"
+      puts user.id
+      puts user.first_name
+      puts user.last_name
+      puts user.password_digest
+      puts "||||||||||||||||||||||||||||||||||||"
 
       # on vérifie si l'utilisateur existe bien ET si on arrive à l'authentifier (méthode bcrypt) avec le mot de passe 
 
       if user.email == params[:email] && user.authenticate(params[:password])
         session[:user_id] = user.id
-      # puts "*****************"
-      # puts "ça marche"
-      # puts "!!!!!!!!!!!!!!!!"
+      puts "*****************"
+      puts "ça marche"
+      puts "!!!!!!!!!!!!!!!!"
 
       redirect_to root_path
         # redirige où tu veux, avec un flash ou pas
@@ -33,6 +32,11 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-      session.delete(:user_id)
+      session.clear
+      puts "*****************"
+      puts "YES"
+      puts "!!!!!!!!!!!!!!!!"
+      redirect_to gossip_path, notice: "Logged out successfully."
+
     end
 end

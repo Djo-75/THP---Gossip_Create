@@ -7,31 +7,31 @@
     <%= form_tag url_for(action: 'create'), method: "POST" do %>
 
       <%= label_tag 'First name' %>
-      <%= text_area_tag 'user[first_name]' %>
+      <%= text_area_tag 'first_name' %>
       <br /> <br />
 
       <%= label_tag 'Last name' %>
-      <%= text_area_tag 'user[last_name]' %>
+      <%= text_area_tag 'last_name' %>
       <br /> <br /> 
 
       <%= label_tag 'Description' %>
-      <%= text_area_tag 'user[description]' %>
+      <%= text_area_tag 'description' %>
       <br /> <br />
 
       <%= label_tag 'Email address' %>
-      <%= text_area_tag 'user[email]' %>
+      <%= text_area_tag 'email' %>
       <br /> <br />
 
       <%= label_tag 'Age' %>
-      <%= text_area_tag 'user[age]' %>
+      <%= text_area_tag 'age' %>
       <br /> <br />
 
       <%= label_tag 'City' %>
-      <%= text_area_tag 'user[city_id]' %>
+      <%= text_area_tag 'city_id' %>
       <br /> <br />
 
       <%= label_tag 'Password' %>
-      <%= text_area_tag 'user[password]' %>
+      <%= text_area_tag 'password' %>
       <br /> <br />
 
       <%= submit_tag "Créer son compte" %>

@@ -17,7 +17,7 @@ class UsersController < ApplicationController
         @user = User.new(post_params)
 
         if @user.save
-            redirect_to gossips_path
+            redirect_to root_path
         else
           render :new, status: :unprocessable_entity
         end
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     private
 
     def post_params
-        params.require(:user).permit(:first_name, :last_name, :description, :email, :age, :city_id, :password)
+        params.permit(:first_name, :last_name, :description, :email, :age, :city_id, :password)
     end
 
 
