@@ -7,15 +7,13 @@ class CitiesController < ApplicationController
     def show
         @cities_id = City.find(params[:id])
 
-        @users = User.all
+        city_users = User.where(city_id: @cities_id)
 
-        # @users_city = []
-        # @id = params[:id]
-        # gossip_all = Gossip.order(id: :asc) # trie de l'index le plus petit au plus grand
-        # (gossip_all).each do |ligne| 
-        #     @array << ligne
-        # end
+        city_users.each do |user|
+            @all_gossips_by_city = Gossip.where(user_id: user.id)
+        end
     end
+
         # tous les gossips des users qui ont une city id de params éuivalente
 
 

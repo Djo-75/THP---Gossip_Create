@@ -4,19 +4,21 @@
   </head>
 
   <body>
-  <div class="container">
-    <br>
-    <h1>BIENVENUE !</h1>
-    <br>
-    <div class="card">
-      <div class="card-header">
-        <p>Voici les potins associés à la ville  </p>
-      </div>
-      <div class="card-body">
-
-        <p class="card-text">Ville de résidence de l'auteur : <%= @cities_id.name %></p>
-        
-      </div>
+    <div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% @all_gossips_by_city.each do |gossip| %>
+        <div class="col">
+          <div class="card ">
+            <div class="card shadow p-3 bg-white rounded" style="">
+              <div class="card-body">
+                <h5 class="card-title"><%= gossip.title %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"> de <%= gossip.content %></h6>
+                <a href="/gossips/<%= gossip.id %>" class="btn btn-primary">Lien vers le potin <%= gossip.id %></a>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end%>
     </div>
   </div>
   </body>
