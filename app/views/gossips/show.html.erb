@@ -10,21 +10,18 @@
     <br>
     <div class="card">
       <div class="card-header">
-        Voici l'index du potin n°<%= @gossip_id.id %>
+        Voici l'index du potin n°<%= @gossip.id %>
       </div>
       <div class="card-body">
-        <h5 class="card-title">Le titre du gossip est <%= @gossip_id.title %></h5><br>
-        <p class="card-text">Le nom de son auteur est le suivant : <%= @gossip_id.user.first_name %></p>
-        <p class="card-text">Son contenu est le suivant : <%= @gossip_id.content %></p>
-        <p class="card-text">Sa ville est la suivante : <%= @gossip_id.user.city.name %></p>
-        <% name_user = @gossip_id.user.first_name %>
-        <a href="/users/<%= @gossip_id.user.id %>"class="btn btn-primary">Voir le profil de son auteur</a>
-        <a href="/cities/<%= @gossip_id.user.id %>"class="btn btn-primary">Voir la ville de l'auteur</a>
+        <h5 class="card-title">Le titre du gossip est <%= @gossip.title %></h5><br>
+        <p class="card-text">Le nom de son auteur est le suivant : <%= @gossip.user.first_name %></p>
+        <p class="card-text">Son contenu est le suivant : <%= @gossip.content %></p>
+        <p class="card-text">Sa ville est la suivante : <%= @gossip.user.city.name %></p>
+        <% name_user = @gossip.user.first_name %>
+        <a href="/users/<%= @gossip.user.id %>"class="btn btn-primary">Voir le profil de son auteur</a>
+        <a href="/cities/<%= @gossip.user.id %>"class="btn btn-primary">Voir la ville de l'auteur</a>
         <a href="/gossips/<%= params[:id] %>/edit"class="btn btn-danger">Editer le potin</a>
-        <%= link_to "Destroy", @gossip, data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %>
+        <%= button_to "Destroy", gossip_path(@gossip), method: :delete %>
       </div>
     </div>
   </div>

@@ -8,7 +8,7 @@ class GossipsController < ApplicationController
 
 
     def show
-      @gossip_id = Gossip.find(params[:id])
+      @gossip = Gossip.find(params[:id])
     end
     
     def new
@@ -46,8 +46,8 @@ class GossipsController < ApplicationController
     end
 
     def destroy
+    @gossip = Gossip.find(params[:id]) 
       if verify_user?
-       @gossip = Gossip.find(params[:id])
        @gossip.destroy
        redirect_to root_path, notice: "Le potin a été supprimé avec succès"
       else

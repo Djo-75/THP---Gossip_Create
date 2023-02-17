@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     def create
         @user = User.new(post_params)
         if @user.save
-          @user = User.find_by(email: params[:user][:email])
+          @user = User.find_by(email: params[:email])
           log_in(@user)
           redirect_to root_path
         else
